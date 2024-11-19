@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="{{ butterfly.commonName }}" />
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <GridLayout columns="*, *" rows="auto">
+                <Image src="{{ butterfly.photos[0].url }}" 
+                       stretch="aspectFill"
+                       height="200"
+                       col="0" />
+                <Image src="{{ butterfly.photos[1].url }}" 
+                       stretch="aspectFill"
+                       height="200"
+                       col="1" />
+            </GridLayout>
+            
+            <GridLayout columns="*, *" rows="auto" class="text-center">
+                <Label text="{{ 'Photo: ' + butterfly.photos[0].contributor }}"
+                       class="text-sm text-gray-500"
+                       col="0" />
+                <Label text="{{ 'Photo: ' + butterfly.photos[1].contributor }}"
+                       class="text-sm text-gray-500"
+                       col="1" />
+            </GridLayout>
+
+            <Label text="{{ butterfly.commonName }}" 
+                   class="text-2xl font-bold mt-4" />
+            <Label text="{{ butterfly.scientificName }}" 
+                   class="text-xl italic text-gray-600" />
+            
+            <Label text="{{ butterfly.description }}" 
+                   textWrap="true"
+                   class="mt-4" />
+            
+            <StackLayout class="mt-4 p-4 bg-gray-100 rounded">
+                <Label text="Habitat" class="font-bold" />
+                <Label text="{{ butterfly.habitat }}" class="mb-2" />
+                
+                <Label text="Wingspan" class="font-bold" />
+                <Label text="{{ butterfly.wingspanRange }}" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

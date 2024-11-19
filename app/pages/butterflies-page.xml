@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Butterfly Catalog" />
+    
+    <StackLayout>
+        <SearchBar text="{{ searchText }}" 
+                   hint="Search butterflies..." 
+                   class="search-bar" />
+        
+        <ListView items="{{ butterflies }}" itemTap="{{ onItemTap }}" height="100%">
+            <ListView.itemTemplate>
+                <GridLayout rows="auto" columns="100, *" class="butterfly-card">
+                    <Image src="{{ photos[0].url }}" 
+                           stretch="aspectFill"
+                           height="100"
+                           width="100"
+                           row="0"
+                           col="0" />
+                    <StackLayout row="0" col="1" class="ml-2">
+                        <Label text="{{ commonName }}" 
+                               class="text-lg font-bold" />
+                        <Label text="{{ scientificName }}" 
+                               class="text-sm italic text-gray-600" />
+                    </StackLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </StackLayout>
+</Page>
